@@ -1,3 +1,5 @@
+;
+
 globals [
   minx
   miny
@@ -8,7 +10,7 @@ globals [
 
 breed [passengers passenger]
 breed [doors door]
-breed [ lamplight]
+breed [gates gate]
 breed [people person]
 
 
@@ -29,7 +31,7 @@ to setup
   set doors-x maxx - 5
 
 
-  create-lamplights 1 [
+  create-gates 1 [
     set shape "line"
     set color red
     set size 2
@@ -88,7 +90,7 @@ to go
     [
       move-ahead self
 
-      if any? other lamplights-on patch-ahead 1
+      if any? other gates-on patch-ahead 1
         [ set-passenger-status self "next" ]
     ]
 
@@ -348,7 +350,7 @@ param-opened-door
 param-opened-door
 0
 5
-2.0
+4.0
 1
 1
 open desk

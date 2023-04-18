@@ -1,3 +1,5 @@
+; MCO1 Model of a Complex System
+
 globals [
   minx
   miny
@@ -348,7 +350,7 @@ param-opened-door
 param-opened-door
 0
 5
-2.0
+4.0
 1
 1
 open desk
