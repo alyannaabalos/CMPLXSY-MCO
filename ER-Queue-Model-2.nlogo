@@ -1,4 +1,5 @@
 ; MCO1 Model of a Complex System
+; Authors: Alyana Erin Bondoc, Alyanna Abalos, Justin To, Kriz Royce Tahimic, Ralph Angelo Furigay
 
 globals [
   minx
