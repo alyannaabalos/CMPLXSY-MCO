@@ -1,5 +1,5 @@
 ; MCO1 Model of a Complex System
-;
+; Authors: Alyana Erin Bondoc, Alyanna Abalos, Justin To, Kriz Royce Tahimic, Ralph Angelo Furigay
 
 globals [
   minx
@@ -87,13 +87,7 @@ to go
 
   ask passengers [
 
-    if status = "line"
-    [
-      move-ahead self
 
-      if any? other gates-on patch-ahead 1
-        [ set-passenger-status self "next" ]
-    ]
 
     if status = "next"
     [
@@ -184,32 +178,7 @@ to set-door-status [ door-to-set new-status ]
 end
 
 
-; >>> ask passengers [set-passengers-status self "chasing"]
-to set-passenger-status [ passenger-to-set new-status ]
-  ask passenger-to-set [set status new-status]
 
-  ifelse new-status = "line"
-  [ ask passenger-to-set [set color white] ]
-  [
-    ifelse new-status = "next"
-    [ ask passenger-to-set [set color red] ]
-    [
-      ifelse new-status = "chasing"
-      [ ask passenger-to-set [set color yellow] ]
-      [
-        ifelse new-status = "weighing"
-        [ ask passenger-to-set [set color blue] ]
-        [
-          ifelse new-status = "weighed"
-          [ ask passenger-to-set [set color green] ]
-          [ ask passenger-to-set [set color 25] ]
-        ]
-      ]
-    ]
-  ]
-
-  ask passenger-to-set [set status new-status]
-end
 
 
 to create-no-of-passengers
