@@ -232,24 +232,32 @@ end
 to create-no-of-passengers
   create-passengers slider-passengers [
     let female_rand random 100
-    ifelse female_prob < female_rand [set sex "female"]
-    [set sex "male"]
-
     let young_rand random 100
-    ifelse young_prob < young_rand [set young "young"]
-    [set young ""]
-
     let pwd_rand random 100
-    ifelse female_prob < female_rand [set sex "female"]
-    [set sex "male"]
+    ifelse female_prob >= female_rand [ask  [set sex "female"]][ask passenger [set sex "male"]]
+    ifelse young_prob >= young_rand [set young "young"][set young "old"]
+    ifelse pwd_prob >= pwd_rand [set sex "pwd"][set sex "not_pwd"]
 
-    ;if
-    ;if
-    set color white
+    if sex = "female" and young = "young" and pwd = "pwd" [set color gray]
+    if sex = "male" and young = "young" and pwd = "pwd" [set color yellow]
+    if sex = "female" and young = "old" and pwd = "pwd" [set color yellow]
+    if sex = "male" and young = "old" and pwd = "pwd" [set color yellow]
+    if sex = "female" and young = "young" and pwd = "not_pwd" [set color yellow]
+    if sex = "male" and young = "young" and pwd = "not_pwd" [set color yellow]
+    if sex = "female" and young = "old" and pwd = "not_pwd" [set color yellow]
+    if sex = "male" and young = "old" and pwd = "not_pwd" [set color yellow]
+
+
+    ;set color white
     set shape "person"
     set heading 90
     setxy minx 0
     set status "line"
+
+    if sex = "male" [
+      print "daebug"
+    ]
+
     set door-target 300
     set weigh-time random service-time
   ]
@@ -492,7 +500,7 @@ female_prob
 female_prob
 0
 100
-50.0
+48.0
 1
 1
 NIL
@@ -507,7 +515,7 @@ young_prob
 young_prob
 0
 100
-25.0
+50.0
 1
 1
 NIL
@@ -522,7 +530,7 @@ pwd_prob
 pwd_prob
 0
 100
-10.0
+53.0
 1
 1
 NIL
