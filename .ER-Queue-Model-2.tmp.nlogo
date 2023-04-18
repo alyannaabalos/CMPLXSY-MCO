@@ -266,10 +266,10 @@ to create-no-of-passengers
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-491
-27
-956
-299
+390
+10
+855
+282
 -1
 -1
 13.85
@@ -399,10 +399,10 @@ open desk
 HORIZONTAL
 
 MONITOR
-441
-187
-549
-232
+181
+208
+289
+253
 total passengers
 count passengers
 17
@@ -430,10 +430,10 @@ Select the amount of opened tolls
 1
 
 PLOT
-0
-424
-200
-574
+1251
+292
+1451
+442
 Inside Train Population
 NIL
 NIL
@@ -442,16 +442,16 @@ NIL
 0.0
 10.0
 true
-false
+true
 "" ""
 PENS
 "pen-1" 1.0 0 -16777216 true "" "plot count passengers with [status = \"die\"]"
 
 PLOT
-203
-424
-403
-574
+442
+293
+642
+443
 Passenger Per Train Car
 NIL
 NIL
@@ -470,10 +470,10 @@ PENS
 "car 1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
 
 PLOT
-970
-10
-1314
-272
+2
+290
+437
+446
 plot 1
 NIL
 NIL
@@ -540,10 +540,10 @@ NIL
 HORIZONTAL
 
 PLOT
-405
-424
-605
-574
+645
+292
+845
+442
 Sex Population in Train
 NIL
 NIL
@@ -552,17 +552,17 @@ NIL
 0.0
 10.0
 true
-false
+true
 "" ""
 PENS
 "female" 1.0 0 -2064490 true "" "plot count passengers with [sex = \"female\" and status = \"die\"]"
 "male" 1.0 0 -11033397 true "" "plot count passengers with [sex = \"male\" and status = \"die\"]"
 
 PLOT
-614
-422
-814
-572
+847
+292
+1047
+442
 Young vs Adult in Train
 NIL
 NIL
@@ -571,18 +571,37 @@ NIL
 0.0
 10.0
 true
-false
+true
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot count passengers with [young = \"old\" and status = \"die\"]"
-"pen-1" 1.0 0 -987046 true "" "plot count passengers with [young = \"young\" and status = \"die\"]"
+"Adult" 1.0 0 -16777216 true "" "plot count passengers with [young = \"old\" and status = \"die\"]"
+"Young" 1.0 0 -987046 true "" "plot count passengers with [young = \"young\" and status = \"die\"]"
 
 PLOT
-819
-420
-1019
-570
+1050
+292
+1250
+442
 PWD vs Not PWD
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+true
+"" ""
+PENS
+"default" 1.0 0 -10899396 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
+"pen-1" 1.0 0 -13345367 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
+
+PLOT
+0
+451
+200
+601
+plot 2
 NIL
 NIL
 0.0
@@ -593,8 +612,7 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -10899396 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
-"pen-1" 1.0 0 -13345367 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
+"default" 1.0 0 -16777216 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
 
 @#$#@#$#@
 ## WHAT IS IT?

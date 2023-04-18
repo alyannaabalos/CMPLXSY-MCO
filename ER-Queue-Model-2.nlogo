@@ -430,10 +430,10 @@ Select the amount of opened tolls
 1
 
 PLOT
-0
-290
-200
-440
+1251
+292
+1451
+442
 Inside Train Population
 NIL
 NIL
@@ -448,10 +448,10 @@ PENS
 "pen-1" 1.0 0 -16777216 true "" "plot count passengers with [status = \"die\"]"
 
 PLOT
-203
-290
-403
-440
+442
+293
+642
+443
 Passenger Per Train Car
 NIL
 NIL
@@ -470,10 +470,10 @@ PENS
 "car 1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
 
 PLOT
-860
-10
-1204
-272
+2
+290
+437
+446
 plot 1
 NIL
 NIL
@@ -540,10 +540,10 @@ NIL
 HORIZONTAL
 
 PLOT
-405
-290
-605
-440
+645
+292
+845
+442
 Sex Population in Train
 NIL
 NIL
@@ -559,10 +559,10 @@ PENS
 "male" 1.0 0 -11033397 true "" "plot count passengers with [sex = \"male\" and status = \"die\"]"
 
 PLOT
-614
-288
-814
-438
+847
+292
+1047
+442
 Young vs Adult in Train
 NIL
 NIL
@@ -578,10 +578,10 @@ PENS
 "pen-1" 1.0 0 -987046 true "" "plot count passengers with [young = \"young\" and status = \"die\"]"
 
 PLOT
-819
-286
-1019
-436
+1050
+292
+1250
+442
 PWD vs Not PWD
 NIL
 NIL
