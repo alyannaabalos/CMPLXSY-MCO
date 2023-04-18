@@ -231,32 +231,34 @@ end
 
 to create-no-of-passengers
   create-passengers slider-passengers [
+    set color white
+
     let female_rand random 100
     let young_rand random 100
     let pwd_rand random 100
-    ifelse female_prob >= female_rand [ask self [set sex "female"]][ask self [set sex "male"]]
+
+
+    ifelse female_prob >= female_rand [set sex "female"] [set sex "male"]
     ifelse young_prob >= young_rand [set young "young"][set young "old"]
-    ifelse pwd_prob >= pwd_rand [set sex "pwd"][set sex "not_pwd"]
+    ifelse pwd_prob >= pwd_rand [set pwd "pwd"][set pwd "not_pwd"]
 
-    if sex = "female" and young = "young" and pwd = "pwd" [set color gray]
-    if sex = "male" and young = "young" and pwd = "pwd" [set color yellow]
-    if sex = "female" and young = "old" and pwd = "pwd" [set color yellow]
-    if sex = "male" and young = "old" and pwd = "pwd" [set color yellow]
-    if sex = "female" and young = "young" and pwd = "not_pwd" [set color yellow]
-    if sex = "male" and young = "young" and pwd = "not_pwd" [set color yellow]
-    if sex = "female" and young = "old" and pwd = "not_pwd" [set color yellow]
-    if sex = "male" and young = "old" and pwd = "not_pwd" [set color yellow]
+    if sex = "female" and young = "young" and pwd = "pwd" [set color yellow]
+    if sex = "male" and young = "young" and pwd = "pwd" [set color brown]
+    if sex = "female" and young = "old" and pwd = "pwd" [set color orange]
+    if sex = "male" and young = "old" and pwd = "pwd" [set color green]
+    if sex = "female" and young = "young" and pwd = "not_pwd" [set color pink]
+    if sex = "male" and young = "young" and pwd = "not_pwd" [set color cyan]
+    if sex = "female" and young = "old" and pwd = "not_pwd" [set color red]
+    if sex = "male" and young = "old" and pwd = "not_pwd" [set color blue]
 
 
-    ;set color white
+
     set shape "person"
     set heading 90
     setxy minx 0
     set status "line"
 
-    if sex = "male" [
-      print "daebug"
-    ]
+
 
     set door-target 300
     set weigh-time random service-time
@@ -264,13 +266,13 @@ to create-no-of-passengers
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-379
+385
 10
-1239
-510
+957
+343
 -1
 -1
-25.84211
+17.1
 1
 15
 1
@@ -372,10 +374,10 @@ seconds
 HORIZONTAL
 
 TEXTBOX
-23
-287
-362
-516
+792
+573
+1131
+802
 Patient:\nWhite: Patients on the line\nRed: Next patient to be served\nYellow: Moving to the service desk\nBlue: Getting served\nGreen: Already served and going to the next step i.e. triage\n\nDesk Colors:\nGreen: Open desk\nYellow: Closing (last patient will be attended)\nRed: Not working
 11
 0.0
@@ -429,10 +431,10 @@ Select the amount of opened tolls
 
 PLOT
 0
-481
+424
 200
-631
-Passenger Population
+574
+Inside Train Population
 NIL
 NIL
 0.0
@@ -443,14 +445,13 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -4699768 true "" "plot count passengers with [color = white]"
-"pen-1" 1.0 0 -2674135 true "" "plot count passengers with [color = red]"
+"pen-1" 1.0 0 -16777216 true "" "plot count passengers with [status = \"die\"]"
 
 PLOT
-207
-481
-407
-631
+203
+424
+403
+574
 Passenger Per Train Car
 NIL
 NIL
@@ -462,17 +463,17 @@ true
 true
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
-"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4 and status = \"die\"]"
-"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0 and status = \"die\"]"
-"pen-3" 1.0 0 -955883 true "" "plot count passengers with [train-car = 4 and status = \"die\"]"
-"pen-4" 1.0 0 -6459832 true "" "plot count passengers with [train-car = 8 and status = \"die\"]"
+"car 5" 1.0 0 -6459832 true "" "plot count passengers with [train-car = 8 and status = \"die\"]"
+"car 4" 1.0 0 -1184463 true "" "plot count passengers with [train-car = 4 and status = \"die\"]"
+"car 3" 1.0 0 -10899396 true "" "plot count passengers with [train-car = 0 and status = \"die\"]"
+"car 2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = -4 and status = \"die\"]"
+"car 1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
 
 PLOT
-412
-481
-612
-631
+970
+10
+1314
+272
 plot 1
 NIL
 NIL
@@ -484,35 +485,22 @@ true
 true
 "" ""
 PENS
-"Adult Men" 1.0 0 -2674135 true "" "plot count turtles"
-"Adult Female" 1.0 0 -7500403 true "" ""
-"Young Male" 1.0 0 -955883 true "" ""
-"Young Female" 1.0 0 -6459832 true "" ""
-"PWD Men" 1.0 0 -1184463 true "" ""
-"PWD Female" 1.0 0 -10899396 true "" ""
+"female-young-pwd" 1.0 0 -2674135 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
+"male-young-pwd" 1.0 0 -7500403 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
+"female-old-pwd" 1.0 0 -955883 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
+"male-old-pwd" 1.0 0 -6459832 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
+"female-young-not_pwd" 1.0 0 -1184463 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
+"male-young-not_pwd" 1.0 0 -10899396 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
+"female-old-not_pwd" 1.0 0 -13840069 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
+"male-old-not_pwd" 1.0 0 -14835848 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 SLIDER
-615
-519
-787
-552
+5
+300
+177
+333
 female_prob
 female_prob
-0
-100
-48.0
-1
-1
-NIL
-HORIZONTAL
-
-SLIDER
-614
-557
-786
-590
-young_prob
-young_prob
 0
 100
 50.0
@@ -522,19 +510,91 @@ NIL
 HORIZONTAL
 
 SLIDER
-614
-594
-786
-627
-pwd_prob
-pwd_prob
+4
+338
+176
+371
+young_prob
+young_prob
 0
 100
-53.0
+25.0
 1
 1
 NIL
 HORIZONTAL
+
+SLIDER
+4
+375
+176
+408
+pwd_prob
+pwd_prob
+0
+100
+10.0
+1
+1
+NIL
+HORIZONTAL
+
+PLOT
+405
+424
+605
+574
+Sex Population in Train
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"female" 1.0 0 -2064490 true "" "plot count passengers with [sex = \"female\" and status = \"die\"]"
+"male" 1.0 0 -11033397 true "" "plot count passengers with [sex = \"male\" and status = \"die\"]"
+
+PLOT
+614
+422
+814
+572
+Young vs Adult in Train
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot count passengers with [young = \"old\" and status = \"die\"]"
+"pen-1" 1.0 0 -987046 true "" "plot count passengers with [young = \"young\" and status = \"die\"]"
+
+PLOT
+819
+420
+1019
+570
+PWD vs Not PWD
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -10899396 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
+"pen-1" 1.0 0 -13345367 true "" "plot count passengers with [pwd = \"pwd\" and status = \"die\"]"
 
 @#$#@#$#@
 ## WHAT IS IT?
