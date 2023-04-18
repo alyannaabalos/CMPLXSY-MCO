@@ -3,17 +3,17 @@ globals [
   miny
   maxx
   maxy
-  desks-x
+  doors-x
 ]
 
-breed [patients patient]
-breed [desks desk]
-breed [lamplights lamplight]
+breed [passengers passenger]
+breed [doors door]
+breed [gates gate]
 breed [people person]
 
 
-patients-own [ status desk-target weigh-time ]
-desks-own [ status ]
+passengers-own [ status door-target weigh-time ]
+doors-own [ status ]
 
 to setup
   clear-all
@@ -26,33 +26,33 @@ to setup
   set miny y-value * -1
   set maxx x-value
   set maxy y-value
-  set desks-x maxx - 5
+  set doors-x maxx - 5
 
 
-  create-lamplights 1 [
+  create-gates 1 [
     set shape "line"
     set color red
     set size 2
     set heading 360
   ]
 
-  ; Set desks
-  let position-desks-y maxy + 2
+  ; Set doors
+  let position-doors-y maxy + 2
 
   foreach [1 2 3 4 5] [ temp ->
-    set position-desks-y position-desks-y - 3
+    set position-doors-y position-doors-y - 3
     create-people 1 [
       set shape "square"
       set color green
-      setxy desks-x position-desks-y
+      setxy doors-x position-doors-y
     ]
 
-    set position-desks-y position-desks-y - 1
-    create-desks 1 [
+    set position-doors-y position-doors-y - 1
+    create-doors 1 [
       set shape "x"
       set heading random 90
-      setxy desks-x position-desks-y
-      set-desk-status self "close"
+      setxy doors-x position-doors-y
+      set-door-status self "close"
     ]
   ]
 
@@ -62,19 +62,19 @@ end
 to go
 
 
-  ask desks [
-    ask desks-here[
+  ask doors [
+    ask doors-here[
 
-      if count desks with [status = "open"] != param-opened-desk [
-        ifelse count desks with [status = "open"] < param-opened-desk
-        [ if status = "close" or status = "closing" [ set-desk-status self "open" ] ]
-        [ if status = "open" [ set-desk-status self "closing" ] ]
+      if count doors with [status = "open"] != param-opened-door [
+        ifelse count doors with [status = "open"] < param-opened-door
+        [ if status = "close" or status = "closing" [ set-door-status self "open" ] ]
+        [ if status = "open" [ set-door-status self "closing" ] ]
       ]
 
       if status = "closing" [
-        let desk-cor ycor
-        if not any? patients with [desk-target = desk-cor]
-        [ set-desk-status self "close" ]
+        let door-cor ycor
+        if not any? passengers with [door-target = door-cor]
+        [ set-door-status self "close" ]
       ]
 
     ]
@@ -82,33 +82,33 @@ to go
 
 
 
-  ask patients [
+  ask passengers [
 
     if status = "line"
     [
       move-ahead self
 
-      if any? other lamplights-on patch-ahead 1
-        [ set-patient-status self "next" ]
+      if any? other gates-on patch-ahead 1
+        [ set-passenger-status self "next" ]
     ]
 
     if status = "next"
     [
       let chasing-y-cordinate 300
 
-      ask desks with [status = "open"] [
-        ask desks-here [
+      ask doors with [status = "open"] [
+        ask doors-here [
           set chasing-y-cordinate ycor
 
-          if any? patients with [desk-target = chasing-y-cordinate]
+          if any? passengers with [door-target = chasing-y-cordinate]
           [ set chasing-y-cordinate 300 ]
         ]
       ]
 
       if chasing-y-cordinate != 300
       [
-        set-patient-status self "chasing"
-        set desk-target chasing-y-cordinate
+        set-passenger-status self "chasing"
+        set door-target chasing-y-cordinate
         move-ahead self
       ]
 
@@ -116,16 +116,16 @@ to go
 
     if status = "chasing"
     [
-      ifelse desk-target = ycor
+      ifelse door-target = ycor
       [set heading 90]
       [
-        ifelse desk-target < ycor
+        ifelse door-target < ycor
         [set heading 180]
         [set heading 360]
       ]
 
-      ifelse xcor = desks-x
-      [ set-patient-status self "weighing" ]
+      ifelse xcor = doors-x
+      [ set-passenger-status self "weighing" ]
       [ move-ahead self ]
     ]
 
@@ -134,8 +134,8 @@ to go
       set weigh-time weigh-time - 1
       if weigh-time <= 0
       [
-        set-patient-status self "weighed"
-        set desk-target 300
+        set-passenger-status self "weighed"
+        set door-target 300
       ]
     ]
 
@@ -143,7 +143,7 @@ to go
     [
       move-ahead self
       if xcor > maxx
-      [ set-patient-status self "die" ]
+      [ set-passenger-status self "die" ]
     ]
 
     if status = "die" [die]
@@ -153,70 +153,70 @@ to go
 end
 
 
-; >>> ask patients [ move-ahead self ]
-to move-ahead [ patient-will-move ]
-  ask patient-will-move [
-    if not any? other patients-on patch-ahead 1
+; >>> ask passengers [ move-ahead self ]
+to move-ahead [ passenger-will-move ]
+  ask passenger-will-move [
+    if not any? other passengers-on patch-ahead 1
     [ fd 1 ]
   ]
 end
 
-; >>> ask desks [set-patients-status self "chasing"]
-to set-desk-status [ desk-to-set new-status ]
-  ask desk-to-set [set status new-status]
+; >>> ask doors [set-passengers-status self "chasing"]
+to set-door-status [ door-to-set new-status ]
+  ask door-to-set [set status new-status]
 
   ifelse new-status = "open"
-  [ ask desk-to-set [set color green] ]
+  [ ask door-to-set [set color green] ]
   [
     ifelse new-status = "closing"
-    [ ask desk-to-set [set color yellow] ]
+    [ ask door-to-set [set color yellow] ]
     [
       ifelse new-status = "close"
-      [ ask desk-to-set [set color red] ]
-      [ ask desk-to-set [set color 25] ]
+      [ ask door-to-set [set color red] ]
+      [ ask door-to-set [set color 25] ]
     ]
   ]
 
-  ask desk-to-set [set status new-status]
+  ask door-to-set [set status new-status]
 end
 
 
-; >>> ask patients [set-patients-status self "chasing"]
-to set-patient-status [ patient-to-set new-status ]
-  ask patient-to-set [set status new-status]
+; >>> ask passengers [set-passengers-status self "chasing"]
+to set-passenger-status [ passenger-to-set new-status ]
+  ask passenger-to-set [set status new-status]
 
   ifelse new-status = "line"
-  [ ask patient-to-set [set color white] ]
+  [ ask passenger-to-set [set color white] ]
   [
     ifelse new-status = "next"
-    [ ask patient-to-set [set color red] ]
+    [ ask passenger-to-set [set color red] ]
     [
       ifelse new-status = "chasing"
-      [ ask patient-to-set [set color yellow] ]
+      [ ask passenger-to-set [set color yellow] ]
       [
         ifelse new-status = "weighing"
-        [ ask patient-to-set [set color blue] ]
+        [ ask passenger-to-set [set color blue] ]
         [
           ifelse new-status = "weighed"
-          [ ask patient-to-set [set color green] ]
-          [ ask patient-to-set [set color 25] ]
+          [ ask passenger-to-set [set color green] ]
+          [ ask passenger-to-set [set color 25] ]
         ]
       ]
     ]
   ]
 
-  ask patient-to-set [set status new-status]
+  ask passenger-to-set [set status new-status]
 end
 
 
-to create-no-of-patients
-  create-patients slider-patients [
+to create-no-of-passengers
+  create-passengers slider-passengers [
     set color white
     set shape "person"
     set heading 90
     setxy minx 0
     set status "line"
-    set desk-target 300
+    set door-target 300
     set weigh-time random service-time
   ]
 end
@@ -287,8 +287,8 @@ BUTTON
 116
 374
 182
-Create Patients
-create-no-of-patients
+Create Passengers
+create-no-of-passengers
 NIL
 1
 T
@@ -304,11 +304,11 @@ SLIDER
 116
 224
 149
-slider-patients
-slider-patients
+slider-passengers
+slider-passengers
 0
 100
-83.0
+81.0
 1
 1
 patients
@@ -344,11 +344,11 @@ SLIDER
 214
 245
 247
-param-opened-desk
-param-opened-desk
+param-opened-door
+param-opened-door
 0
 5
-1.0
+2.0
 1
 1
 open desk
@@ -357,10 +357,10 @@ HORIZONTAL
 MONITOR
 269
 208
-369
+377
 253
-total patients
-count patients
+total passengers
+count passengers
 17
 1
 11
