@@ -25,7 +25,6 @@ to setup
   ; Set Global Variables
   let x-value 15
   let y-value 10
-  let max-pop-in-car 300 * 2 ; 300 means 7 max per train-car
   set minx x-value * -1
   set miny y-value * -1
   set maxx x-value
@@ -86,7 +85,6 @@ to go
 
   ask passengers [
 
-    ; Still in line, just moving forward of the line
     if status = "line"
     [
       move-ahead self
@@ -120,7 +118,6 @@ to go
 
     ]
 
-    ; Moving to train-car
     if status = "chasing"
     [
       ifelse door-target = ycor
@@ -136,7 +133,6 @@ to go
       [ move-ahead self ]
     ]
 
-    ; At the door of the train-car
     if status = "weighing"
     [
       set weigh-time weigh-time - 1
@@ -149,7 +145,6 @@ to go
       ]
     ]
 
-    ; Inside train-car
     if status = "weighed"
     [
       move-ahead self
