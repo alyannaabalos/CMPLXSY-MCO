@@ -147,12 +147,13 @@ to go
 
     if status = "weighed"
     [
+      ht
       move-ahead self
       if xcor > maxx
       [ set-passenger-status self "die" ]
     ]
 
-    ;if status = "die" [die]
+     if status = "die" [ht]
   ]
 
   tick
@@ -427,6 +428,11 @@ false
 "" ""
 PENS
 "default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8]"
+"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4]"
+"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0]"
+"pen-3" 1.0 0 -955883 true "" "plot count passengers with [train-car = 4]"
+"pen-4" 1.0 0 -6459832 true "" "plot count passengers with [train-car = 8]"
+"pen-5" 1.0 0 -12345184 true "" "plot count passengers with [status = \"die\"]"
 
 @#$#@#$#@
 ## WHAT IS IT?

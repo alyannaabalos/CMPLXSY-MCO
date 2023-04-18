@@ -147,12 +147,13 @@ to go
 
     if status = "weighed"
     [
+      ht
       move-ahead self
       if xcor > maxx
       [ set-passenger-status self "die" ]
     ]
 
-    ; if status = "die" [die]
+     if status = "die" [ht]
   ]
 
   tick
