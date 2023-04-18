@@ -102,6 +102,8 @@ to go
         [ set-passenger-status self "next" ]
     ]
 
+
+    ;
     if status = "next"
     [
       let chasing-y-cordinate 300
@@ -127,6 +129,7 @@ to go
 
     ]
 
+    ; Choosing what train-car-# to hop in
     if status = "chasing"
     [
       ifelse door-target = ycor
@@ -142,6 +145,7 @@ to go
       [ move-ahead self ]
     ]
 
+    ; At the train door
     if status = "weighing"
     [
       set weigh-time weigh-time - 1
@@ -154,6 +158,7 @@ to go
       ]
     ]
 
+    ; Inside train
     if status = "weighed"
     [
       ht
@@ -161,11 +166,11 @@ to go
       if xcor > maxx
       [ set-passenger-status self "die" ]
     ]
-
+    ; Inside train
      if status = "die"
     [
-      ht
-      setxy -15 9
+      ht ; Hide
+      setxy -15 9 ; Change location
     ]
   ]
 
@@ -374,10 +379,10 @@ seconds
 HORIZONTAL
 
 TEXTBOX
-792
-573
-1131
-802
+804
+770
+1143
+999
 Patient:\nWhite: Patients on the line\nRed: Next patient to be served\nYellow: Moving to the service desk\nBlue: Getting served\nGreen: Already served and going to the next step i.e. triage\n\nDesk Colors:\nGreen: Open desk\nYellow: Closing (last patient will be attended)\nRed: Not working
 11
 0.0
@@ -616,10 +621,25 @@ PENS
 "male-young-pwd" 1.0 0 -8431303 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
 "female-old-pwd" 1.0 0 -817084 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
 "male-old-pwd" 1.0 0 -10899396 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
-"pen-4" 1.0 0 -2064490 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
-"pen-5" 1.0 0 -11221820 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
-"pen-6" 1.0 0 -2674135 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
-"pen-7" 1.0 0 -14070903 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
+"female-young-not_pwd" 1.0 0 -2064490 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
+"male-young-not_pwd" 1.0 0 -11221820 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
+"female-old-not_pwd" 1.0 0 -2674135 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
+"male-old-not_pwd" 1.0 0 -14070903 true "" "plot count passengers with[train-car = -8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
+
+SLIDER
+857
+245
+1029
+278
+female-car-1-prob
+female-car-1-prob
+0
+100
+50.0
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
