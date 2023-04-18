@@ -53,9 +53,9 @@ to setup
     set position-doors-y position-doors-y - 1
     create-doors 1 [
       set shape "x"
-      set heading random 90
+      ;set heading random 90
       setxy doors-x position-doors-y
-      set-door-status self "close"
+      set status "open"
     ]
   ]
 
@@ -63,25 +63,23 @@ to setup
 end
 
 to go
-
-
-  ask doors [
-    ask doors-here[
-
-      if count doors with [status = "open"] != param-opened-door [
-        ifelse count doors with [status = "open"] < param-opened-door
-        [ if status = "close" or status = "closing" [ set-door-status self "open" ] ]
-        [ if status = "open" [ set-door-status self "closing" ] ]
-      ]
-
-      if status = "closing" [
-        let door-cor ycor
-        if not any? passengers with [door-target = door-cor]
-        [ set-door-status self "close" ]
-      ]
-
-    ]
-  ]
+;  ask doors [
+;    ask doors-here[
+;
+;      if count doors with [status = "open"] != param-opened-door [
+;        ifelse count doors with [status = "open"] < param-opened-door
+;        [ if status = "close" or status = "closing" [ set-door-status self "open" ] ]
+;        [ if status = "open" [ set-door-status self "closing" ] ]
+;      ]
+;
+;      if status = "closing" [
+;        let door-cor ycor
+;        if not any? passengers with [door-target = door-cor]
+;        [ set-door-status self "close" ]
+;      ]
+;
+;    ]
+;  ]
 
 
 
@@ -165,23 +163,23 @@ to move-ahead [ passenger-will-move ]
 end
 
 ; >>> ask doors [set-passengers-status self "chasing"]
-to set-door-status [ door-to-set new-status ]
-  ask door-to-set [set status new-status]
-
-  ifelse new-status = "open"
-  [ ask door-to-set [set color green] ]
-  [
-    ifelse new-status = "closing"
-    [ ask door-to-set [set color yellow] ]
-    [
-      ifelse new-status = "close"
-      [ ask door-to-set [set color red] ]
-      [ ask door-to-set [set color 25] ]
-    ]
-  ]
-
-  ask door-to-set [set status new-status]
-end
+; to set-door-status [ door-to-set new-status ]
+;   ask door-to-set [set status new-status]
+;
+;   ifelse new-status = "open"
+;   [ ask door-to-set [set color green] ]
+;   [
+;     ifelse new-status = "closing"
+;     [ ask door-to-set [set color yellow] ]
+;     [
+;       ifelse new-status = "close"
+;       [ ask door-to-set [set color red] ]
+;       [ ask door-to-set [set color 25] ]
+;     ]
+;   ]
+;
+;   ask door-to-set [set status new-status]
+; end
 
 
 ; >>> ask passengers [set-passengers-status self "chasing"]
@@ -387,6 +385,25 @@ Select the amount of opened tolls
 11
 0.0
 1
+
+PLOT
+65
+488
+265
+638
+Passenger Population
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -4699768 true "" "plot count passengers with [color = white]"
+"pen-1" 1.0 0 -2674135 true "" "plot count passengers with [color = red]"
 
 @#$#@#$#@
 ## WHAT IS IT?
