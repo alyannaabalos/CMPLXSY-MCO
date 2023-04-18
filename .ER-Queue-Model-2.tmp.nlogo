@@ -156,7 +156,7 @@ to go
      if status = "die"
     [
       ht
-      setxy doors-x position-doors-y
+      setxy -15 9
     ]
   ]
 
@@ -431,12 +431,11 @@ true
 false
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8 and status = \"chasing\"]"
-"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4 and status = \"weighing\"]"
-"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0 and status = \"weighed\"]"
+"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
+"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4 and status = \"die\"]"
+"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0 and status = \"die\"]"
 "pen-3" 1.0 0 -955883 true "" "plot count passengers with [train-car = 4 and status = \"die\"]"
 "pen-4" 1.0 0 -6459832 true "" "plot count passengers with [train-car = 8 and status = \"die\"]"
-"pen-5" 1.0 0 -12345184 true "" "plot count passengers with [status = \"die\"]"
 
 @#$#@#$#@
 ## WHAT IS IT?
