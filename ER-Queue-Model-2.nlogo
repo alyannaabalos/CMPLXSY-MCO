@@ -15,7 +15,16 @@ breed [gates gate]
 breed [people person]
 
 
-passengers-own [ status door-target weigh-time train-car]
+passengers-own
+[
+  status
+  door-target
+  weigh-time
+  train-car
+  young
+  sex
+  pwd
+]
 doors-own [ status ]
 
 to setup
@@ -196,25 +205,25 @@ end
 to set-passenger-status [ passenger-to-set new-status ]
   ask passenger-to-set [set status new-status]
 
-  ifelse new-status = "line"
-  [ ask passenger-to-set [set color white] ]
-  [
-    ifelse new-status = "next"
-    [ ask passenger-to-set [set color red] ]
-    [
-      ifelse new-status = "chasing"
-      [ ask passenger-to-set [set color yellow] ]
-      [
-        ifelse new-status = "weighing"
-        [ ask passenger-to-set [set color blue] ]
-        [
-          ifelse new-status = "weighed"
-          [ ask passenger-to-set [set color green] ]
-          [ ask passenger-to-set [set color 25] ]
-        ]
-      ]
-    ]
-  ]
+  ; ifelse new-status = "line"
+  ; [ ask passenger-to-set [set color white] ]
+  ; [
+  ;   ifelse new-status = "next"
+  ;   [ ask passenger-to-set [set color red] ]
+  ;   [
+  ;     ifelse new-status = "chasing"
+  ;     [ ask passenger-to-set [set color yellow] ]
+  ;     [
+  ;       ifelse new-status = "weighing"
+  ;       [ ask passenger-to-set [set color blue] ]
+  ;       [
+  ;         ifelse new-status = "weighed"
+  ;         [ ask passenger-to-set [set color green] ]
+  ;         [ ask passenger-to-set [set color 25] ]
+  ;       ]
+  ;     ]
+  ;   ]
+  ; ]
 
   ask passenger-to-set [set status new-status]
 end
@@ -222,6 +231,9 @@ end
 
 to create-no-of-passengers
   create-passengers slider-passengers [
+    let male_prob random 100
+    ;if
+    ;if
     set color white
     set shape "person"
     set heading 90
@@ -319,7 +331,7 @@ slider-passengers
 slider-passengers
 0
 100
-81.0
+100.0
 1
 1
 patients
@@ -428,15 +440,52 @@ NIL
 0.0
 10.0
 true
-false
+true
 "" ""
 PENS
-"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8 and status = \"chasing\"]"
-"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4 and status = \"weighing\"]"
-"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0 and status = \"weighed\"]"
+"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
+"pen-1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -4 and status = \"die\"]"
+"pen-2" 1.0 0 -2674135 true "" "plot count passengers with [train-car = 0 and status = \"die\"]"
 "pen-3" 1.0 0 -955883 true "" "plot count passengers with [train-car = 4 and status = \"die\"]"
 "pen-4" 1.0 0 -6459832 true "" "plot count passengers with [train-car = 8 and status = \"die\"]"
-"pen-5" 1.0 0 -12345184 true "" "plot count passengers with [status = \"die\"]"
+
+PLOT
+412
+481
+612
+631
+plot 1
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+true
+"" ""
+PENS
+"Adult Men" 1.0 0 -2674135 true "" "plot count turtles"
+"Adult Female" 1.0 0 -7500403 true "" ""
+"Young Male" 1.0 0 -955883 true "" ""
+"Young Female" 1.0 0 -6459832 true "" ""
+"PWD Men" 1.0 0 -1184463 true "" ""
+"PWD Female" 1.0 0 -10899396 true "" ""
+
+SLIDER
+713
+546
+885
+579
+female_prob
+female_prob
+0
+100
+50.0
+1
+1
+NIL
+HORIZONTAL
 
 @#$#@#$#@
 ## WHAT IS IT?
