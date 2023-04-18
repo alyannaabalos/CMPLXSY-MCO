@@ -231,7 +231,18 @@ end
 
 to create-no-of-passengers
   create-passengers slider-passengers [
-    let male_prob random 100
+    let female_rand random 100
+    ifelse female_prob < female_rand [set sex "female"]
+    [set sex "male"]
+
+    let young_rand random 100
+    ifelse young_prob < young_rand [set young "young"]
+    [set young "old"]
+
+    let pwd_rand random 100
+    ifelse pwd_prob < pwd_rand [set sex "pwd"]
+    [set sex "not pwd"]
+
     ;if
     ;if
     set color white
@@ -245,9 +256,9 @@ to create-no-of-passengers
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-377
+379
 10
-1237
+1239
 510
 -1
 -1
@@ -473,15 +484,45 @@ PENS
 "PWD Female" 1.0 0 -10899396 true "" ""
 
 SLIDER
-713
-546
-885
-579
+615
+519
+787
+552
 female_prob
 female_prob
 0
 100
 50.0
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+614
+557
+786
+590
+young_prob
+young_prob
+0
+100
+25.0
+1
+1
+NIL
+HORIZONTAL
+
+SLIDER
+614
+594
+786
+627
+pwd_prob
+pwd_prob
+0
+100
+10.0
 1
 1
 NIL

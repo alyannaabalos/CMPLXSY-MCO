@@ -231,7 +231,18 @@ end
 
 to create-no-of-passengers
   create-passengers slider-passengers [
-    let male_prob random 100
+    let female_rand random 100
+    ifelse female_prob < female_rand [set sex "female"]
+    [set sex "male"]
+
+    let young_rand random 100
+    ifelse young_prob < young_rand [set young "young"]
+    [set young ""]
+
+    let pwd_rand random 100
+    ifelse female_prob < female_rand [set sex "female"]
+    [set sex "male"]
+
     ;if
     ;if
     set color white
