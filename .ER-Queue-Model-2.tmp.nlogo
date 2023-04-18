@@ -15,7 +15,7 @@ breed [gates gate]
 breed [people person]
 
 
-passengers-own [ status door-target weigh-time ]
+passengers-own [ status door-target weigh-time train-car]
 doors-own [ status ]
 
 to setup
@@ -55,7 +55,7 @@ to setup
       set shape "x"
       ;set heading random 90
       setxy doors-x position-doors-y
-
+      set status "open"
     ]
   ]
 
@@ -110,6 +110,9 @@ to go
       [
         set-passenger-status self "chasing"
         set door-target chasing-y-cordinate
+
+        ; print chasing-y-cordinate ; *** DEBUG ***
+
         move-ahead self
       ]
 
@@ -136,7 +139,9 @@ to go
       if weigh-time <= 0
       [
         set-passenger-status self "weighed"
+        set train-car door-target
         set door-target 300
+
       ]
     ]
 
@@ -147,7 +152,7 @@ to go
       [ set-passenger-status self "die" ]
     ]
 
-    if status = "die" [die]
+    ;if status = "die" [die]
   ]
 
   tick
@@ -387,10 +392,10 @@ Select the amount of opened tolls
 1
 
 PLOT
-65
-488
-265
-638
+0
+481
+200
+631
 Passenger Population
 NIL
 NIL
@@ -404,6 +409,24 @@ false
 PENS
 "default" 1.0 0 -4699768 true "" "plot count passengers with [color = white]"
 "pen-1" 1.0 0 -2674135 true "" "plot count passengers with [color = red]"
+
+PLOT
+207
+481
+407
+631
+Passenger Per Train Car
+NIL
+NIL
+0.0
+10.0
+0.0
+10.0
+true
+false
+"" ""
+PENS
+"default" 1.0 0 -16777216 true "" "plot count passengers with [train-car = -8]"
 
 @#$#@#$#@
 ## WHAT IS IT?
