@@ -266,13 +266,13 @@ to create-no-of-passengers
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-385
+390
 10
-957
-343
+855
+282
 -1
 -1
-17.1
+13.85
 1
 15
 1
@@ -293,10 +293,10 @@ ticks
 90.0
 
 BUTTON
-186
-23
-332
-69
+145
+10
+291
+56
 Simulate
 go
 T
@@ -310,10 +310,10 @@ NIL
 1
 
 BUTTON
-41
-23
-187
-69
+0
+10
+146
+56
 Setup
 setup
 NIL
@@ -327,10 +327,10 @@ NIL
 1
 
 BUTTON
-228
-116
-374
-182
+219
+85
+365
+151
 Create Passengers
 create-no-of-passengers
 NIL
@@ -344,10 +344,10 @@ NIL
 1
 
 SLIDER
-18
-116
-224
-149
+9
+85
+215
+118
 slider-passengers
 slider-passengers
 0
@@ -359,10 +359,10 @@ patients
 HORIZONTAL
 
 SLIDER
-18
-148
-224
-181
+9
+117
+215
+150
 service-time
 service-time
 0
@@ -384,10 +384,10 @@ Patient:\nWhite: Patients on the line\nRed: Next patient to be served\nYellow: M
 1
 
 SLIDER
-18
-214
-245
-247
+176
+172
+386
+205
 param-opened-door
 param-opened-door
 0
@@ -399,9 +399,9 @@ open desk
 HORIZONTAL
 
 MONITOR
-269
+181
 208
-377
+289
 253
 total passengers
 count passengers
@@ -410,20 +410,20 @@ count passengers
 11
 
 TEXTBOX
-10
-86
-335
-121
+1
+61
+326
+96
 Select the number of patients to be served and maximum service time.
 11
 15.0
 1
 
 TEXTBOX
-9
-199
-189
-227
+0
+151
+180
+179
 Select the amount of opened tolls
 11
 0.0
@@ -431,9 +431,9 @@ Select the amount of opened tolls
 
 PLOT
 0
-424
+290
 200
-574
+440
 Inside Train Population
 NIL
 NIL
@@ -449,9 +449,9 @@ PENS
 
 PLOT
 203
-424
+290
 403
-574
+440
 Passenger Per Train Car
 NIL
 NIL
@@ -470,9 +470,9 @@ PENS
 "car 1" 1.0 0 -7500403 true "" "plot count passengers with [train-car = -8 and status = \"die\"]"
 
 PLOT
-970
+860
 10
-1314
+1204
 272
 plot 1
 NIL
@@ -485,20 +485,20 @@ true
 true
 "" ""
 PENS
-"female-young-pwd" 1.0 0 -2674135 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
-"male-young-pwd" 1.0 0 -7500403 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
+"female-young-pwd" 1.0 0 -1184463 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
+"male-young-pwd" 1.0 0 -6459832 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
 "female-old-pwd" 1.0 0 -955883 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
-"male-old-pwd" 1.0 0 -6459832 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
-"female-young-not_pwd" 1.0 0 -1184463 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
-"male-young-not_pwd" 1.0 0 -10899396 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
-"female-old-not_pwd" 1.0 0 -13840069 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
-"male-old-not_pwd" 1.0 0 -14835848 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
+"male-old-pwd" 1.0 0 -10899396 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
+"female-young-not_pwd" 1.0 0 -2064490 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
+"male-young-not_pwd" 1.0 0 -11221820 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
+"female-old-not_pwd" 1.0 0 -2674135 true "" "plot count passengers with[status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
+"male-old-not_pwd" 1.0 0 -14070903 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 SLIDER
-5
-300
-177
-333
+1
+172
+173
+205
 female_prob
 female_prob
 0
@@ -510,10 +510,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-4
-338
-176
-371
+0
+210
+172
+243
 young_prob
 young_prob
 0
@@ -525,10 +525,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-4
-375
-176
-408
+0
+247
+172
+280
 pwd_prob
 pwd_prob
 0
@@ -541,9 +541,9 @@ HORIZONTAL
 
 PLOT
 405
-424
+290
 605
-574
+440
 Sex Population in Train
 NIL
 NIL
@@ -560,9 +560,9 @@ PENS
 
 PLOT
 614
-422
+288
 814
-572
+438
 Young vs Adult in Train
 NIL
 NIL
@@ -579,9 +579,9 @@ PENS
 
 PLOT
 819
-420
+286
 1019
-570
+436
 PWD vs Not PWD
 NIL
 NIL

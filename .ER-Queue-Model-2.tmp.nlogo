@@ -266,13 +266,13 @@ to create-no-of-passengers
 end
 @#$#@#$#@
 GRAPHICS-WINDOW
-385
-10
-957
-343
+491
+27
+956
+299
 -1
 -1
-17.1
+13.85
 1
 15
 1
@@ -293,10 +293,10 @@ ticks
 90.0
 
 BUTTON
-186
-23
-332
-69
+145
+10
+291
+56
 Simulate
 go
 T
@@ -310,10 +310,10 @@ NIL
 1
 
 BUTTON
-41
-23
-187
-69
+0
+10
+146
+56
 Setup
 setup
 NIL
@@ -327,10 +327,10 @@ NIL
 1
 
 BUTTON
-228
-116
-374
-182
+219
+85
+365
+151
 Create Passengers
 create-no-of-passengers
 NIL
@@ -344,10 +344,10 @@ NIL
 1
 
 SLIDER
-18
-116
-224
-149
+9
+85
+215
+118
 slider-passengers
 slider-passengers
 0
@@ -359,10 +359,10 @@ patients
 HORIZONTAL
 
 SLIDER
-18
-148
-224
-181
+9
+117
+215
+150
 service-time
 service-time
 0
@@ -384,10 +384,10 @@ Patient:\nWhite: Patients on the line\nRed: Next patient to be served\nYellow: M
 1
 
 SLIDER
-18
-214
-245
-247
+176
+172
+386
+205
 param-opened-door
 param-opened-door
 0
@@ -399,10 +399,10 @@ open desk
 HORIZONTAL
 
 MONITOR
-269
-208
-377
-253
+441
+187
+549
+232
 total passengers
 count passengers
 17
@@ -410,20 +410,20 @@ count passengers
 11
 
 TEXTBOX
-10
-86
-335
-121
+1
+61
+326
+96
 Select the number of patients to be served and maximum service time.
 11
 15.0
 1
 
 TEXTBOX
-9
-199
-189
-227
+0
+151
+180
+179
 Select the amount of opened tolls
 11
 0.0
@@ -495,10 +495,10 @@ PENS
 "male-old-not_pwd" 1.0 0 -14070903 true "" "plot count passengers with[status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 SLIDER
-5
-300
-177
-333
+1
+172
+173
+205
 female_prob
 female_prob
 0
@@ -510,10 +510,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-4
-338
-176
-371
+0
+210
+172
+243
 young_prob
 young_prob
 0
@@ -525,10 +525,10 @@ NIL
 HORIZONTAL
 
 SLIDER
-4
-375
-176
-408
+0
+247
+172
+280
 pwd_prob
 pwd_prob
 0
