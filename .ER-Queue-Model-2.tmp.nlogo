@@ -644,9 +644,9 @@ HORIZONTAL
 PLOT
 440
 450
-850
+849
 600
-Inside Car 2 Demographic
+Inside Car Demographic 2
 NIL
 NIL
 0.0
@@ -661,16 +661,16 @@ PENS
 "male-young-pwd" 1.0 0 -6459832 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
 "female-old-pwd" 1.0 0 -955883 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
 "male-old-pwd" 1.0 0 -10899396 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
-"female-young-not_pwd" 1.0 0 -2064490 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
-"male-young-not_pwd" 1.0 0 -11221820 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
+"female-young-not_pwd" 1.0 0 -11221820 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
+"male-young-not_pwd" 1.0 0 -2064490 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
 "female-old-not_pwd" 1.0 0 -2674135 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
 "male-old-not_pwd" 1.0 0 -13345367 true "" "plot count passengers with[train-car = -4 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 PLOT
-855
-450
-1250
-600
+853
+451
+1247
+601
 Inside Car 3 Demographic
 NIL
 NIL
@@ -692,10 +692,10 @@ PENS
 "male-old-not_pwd" 1.0 0 -13345367 true "" "plot count passengers with[train-car = 0 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 PLOT
-2
-605
-435
-755
+8
+612
+436
+762
 Inside Car 4 Demographic
 NIL
 NIL
@@ -717,10 +717,10 @@ PENS
 "male-old-not_pwd" 1.0 0 -13345367 true "" "plot count passengers with[train-car = 4 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 PLOT
-495
-635
-695
-785
+443
+610
+851
+760
 Inside Car 5 Demographic
 NIL
 NIL
@@ -732,14 +732,14 @@ true
 true
 "" ""
 PENS
-"female-young-pwd " 1.0 0 -1184463 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
-"male-young-pwd" 1.0 0 -6459832 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
-"female-old-pwd" 1.0 0 -955883 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
-"male-old-pwd" 1.0 0 -10899396 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
-"female-young-not_pwd" 1.0 0 -2064490 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
-"male-young-not_pwd" 1.0 0 -11221820 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
-"female-old-not_pwd" 1.0 0 -2674135 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
-"male-old-not_pwd" 1.0 0 -13345367 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
+"female-young-pwd " 1.0 0 -16777216 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"pwd\"]"
+"male-young-pwd" 1.0 0 -7500403 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"pwd\"]"
+"female-old-pwd" 1.0 0 -2674135 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"pwd\"]"
+"male-old-pwd" 1.0 0 -955883 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"pwd\"]"
+"female-young-not_pwd" 1.0 0 -6459832 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"young\" and pwd = \"not_pwd\"]"
+"male-young-not_pwd" 1.0 0 -1184463 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"young\" and pwd = \"not_pwd\"]"
+"female-old-not_pwd" 1.0 0 -10899396 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"female\" and young = \"old\" and pwd = \"not_pwd\"]"
+"male-old-not_pwd" 1.0 0 -13840069 true "" "plot count passengers with[train-car = 8 and status =\"die\" and sex = \"male\" and young = \"old\" and pwd = \"not_pwd\"]"
 
 @#$#@#$#@
 ## WHAT IS IT?
