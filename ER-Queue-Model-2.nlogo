@@ -383,7 +383,7 @@ TEXTBOX
 770
 1143
 999
-Patient:\nWhite: Patients on the line\nRed: Next patient to be served\nYellow: Moving to the service desk\nBlue: Getting served\nGreen: Already served and going to the next step i.e. triage\n\nDesk Colors:\nGreen: Open desk\nYellow: Closing (last patient will be attended)\nRed: Not working
+NIL
 11
 0.0
 1
